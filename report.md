@@ -34,6 +34,10 @@ UI elements:
 
 ```
 
+## Live Demo
+
+https://sultonxon.github.io/company-leader-board
+
 ## To automate deployment we created github actions workflow
 
 ```
