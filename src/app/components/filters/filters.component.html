@@ -1,0 +1,52 @@
+<div class="filters">
+  <div class="filters__group">
+    <label class="filters__label" for="year-select">Year</label>
+    <select id="year-select" class="filters__select" (change)="onYearChange($event)">
+      @for (year of service.years; track year) {
+        <option [value]="year" [selected]="filterState().year === year">
+          {{ year === 'all' ? 'All Years' : year }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="filters__group">
+    <label class="filters__label" for="quarter-select">Quarter</label>
+    <select id="quarter-select" class="filters__select" (change)="onQuarterChange($event)">
+      @for (q of service.quarters; track q) {
+        <option [value]="q" [selected]="filterState().quarter === q">
+          {{ q === 'all' ? 'All Quarters' : q }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="filters__group">
+    <label class="filters__label" for="category-select">Category</label>
+    <select id="category-select" class="filters__select" (change)="onCategoryChange($event)">
+      @for (cat of service.categories; track cat) {
+        <option [value]="cat" [selected]="filterState().category === cat">
+          {{ cat === 'all' ? 'All Categories' : cat }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="filters__group filters__group--search">
+    <label class="filters__label" for="search-input">Search</label>
+    <div class="filters__search-wrapper">
+      <svg class="filters__search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="9" cy="9" r="6" />
+        <line x1="13.5" y1="13.5" x2="18" y2="18" />
+      </svg>
+      <input
+        id="search-input"
+        class="filters__input"
+        type="text"
+        placeholder="Search by name..."
+        [value]="filterState().search"
+        (input)="onSearchInput($event)"
+      />
+    </div>
+  </div>
+</div>

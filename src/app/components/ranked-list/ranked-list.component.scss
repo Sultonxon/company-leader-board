@@ -1,0 +1,50 @@
+$cols: 56px 1fr 140px 110px 100px 120px 100px 52px;
+
+.ranked-list {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.ranked-list__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.ranked-list__empty {
+  padding: 2rem 1.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.ranked-list__table-wrap {
+  overflow-x: auto;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: $cols;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+
+  .col {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+
+    &--rank   { text-align: center; }
+    &--count  { text-align: center; }
+    &--points { text-align: left; }
+    &--expand { text-align: center; }
+  }
+}

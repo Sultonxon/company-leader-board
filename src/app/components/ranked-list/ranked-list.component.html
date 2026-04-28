@@ -1,0 +1,23 @@
+<section class="ranked-list">
+  <h2 class="ranked-list__heading">Rankings</h2>
+
+  @if (employees().length === 0) {
+    <p class="ranked-list__empty">No employees to display.</p>
+  } @else {
+    <div class="ranked-list__table-wrap">
+      <div class="table-header">
+        <div class="col col--rank">#</div>
+        <div class="col col--employee">Employee</div>
+        <div class="col col--org">Org Unit</div>
+        <div class="col col--count">Presentations</div>
+        <div class="col col--count">Education</div>
+        <div class="col col--count">Uni Partners</div>
+        <div class="col col--points">Points</div>
+        <div class="col col--expand"></div>
+      </div>
+      @for (emp of employees(); track emp.id) {
+        <app-employee-row [employee]="emp" />
+      }
+    </div>
+  }
+</section>

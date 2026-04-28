@@ -1,0 +1,53 @@
+.leaderboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard__header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboard__header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.leaderboard__logo {
+  svg {
+    width: 36px;
+    height: 36px;
+    color: #f59e0b;
+  }
+}
+
+.leaderboard__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.leaderboard__subtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 0.1rem;
+}
+
+.leaderboard__content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}

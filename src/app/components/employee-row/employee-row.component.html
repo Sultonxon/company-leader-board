@@ -1,0 +1,66 @@
+<div class="row" (click)="toggle()" [class.row--expanded]="expanded()">
+  <div class="row__rank">
+    <span class="rank-badge">{{ employee().rank }}</span>
+  </div>
+
+  <div class="row__employee">
+    <img class="row__avatar" [src]="employee().avatarUrl" [alt]="employee().name" />
+    <div class="row__identity">
+      <span class="row__name">{{ employee().name }}</span>
+      <span class="row__title">{{ employee().title }}</span>
+    </div>
+  </div>
+
+  <div class="row__cell">{{ employee().orgUnit }}</div>
+
+  <div class="row__cell row__cell--center">
+    <span class="count-badge count-badge--speaking">{{ employee().presentationCount }}</span>
+  </div>
+
+  <div class="row__cell row__cell--center">
+    <span class="count-badge count-badge--education">{{ employee().educationCount }}</span>
+  </div>
+
+  <div class="row__cell row__cell--center">
+    <span class="count-badge count-badge--university">{{ employee().universityPartnersCount }}</span>
+  </div>
+
+  <div class="row__cell row__points">{{ employee().totalPoints }}</div>
+
+  <div class="row__cell row__cell--center">
+    <span class="row__toggle" [class.row__toggle--open]="expanded()">&#x276F;</span>
+  </div>
+</div>
+
+@if (expanded()) {
+  <div class="activities">
+    @if (employee().filteredActivities.length === 0) {
+      <p class="activities__empty">No activities match the current filters.</p>
+    } @else {
+      <table class="activities__table">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (activity of employee().filteredActivities; track $index) {
+            <tr>
+              <td>{{ activity.title }}</td>
+              <td>
+                <span [class]="categoryClass(activity.category)">
+                  {{ activity.category }}
+                </span>
+              </td>
+              <td>{{ activity.date }}</td>
+              <td class="activities__pts">{{ activity.points }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+}

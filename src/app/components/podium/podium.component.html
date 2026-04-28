@@ -1,0 +1,66 @@
+<section class="podium">
+  <h2 class="podium__heading">Top Performers</h2>
+
+  @if (top3().length === 0) {
+    <p class="podium__empty">No results for the selected filters.</p>
+  } @else {
+    <div class="podium__stage">
+
+      <!-- 2nd place -->
+      <div class="podium__place podium__place--2nd">
+        @if (top3()[1]) {
+          <div class="podium__athlete">
+            <img class="podium__avatar" [src]="top3()[1].avatarUrl" [alt]="top3()[1].name" />
+            <div class="podium__info">
+              <span class="podium__name">{{ top3()[1].name }}</span>
+              <span class="podium__role">{{ top3()[1].title }}</span>
+              <span class="podium__org">{{ top3()[1].orgUnit }}</span>
+            </div>
+            <span class="podium__pts podium__pts--silver">{{ top3()[1].totalPoints }} pts</span>
+          </div>
+        }
+        <div class="podium__block podium__block--silver">
+          <span class="podium__rank">2</span>
+        </div>
+      </div>
+
+      <!-- 1st place -->
+      <div class="podium__place podium__place--1st">
+        @if (top3()[0]) {
+          <div class="podium__athlete">
+            <div class="podium__crown">&#x1F451;</div>
+            <img class="podium__avatar podium__avatar--lg" [src]="top3()[0].avatarUrl" [alt]="top3()[0].name" />
+            <div class="podium__info">
+              <span class="podium__name">{{ top3()[0].name }}</span>
+              <span class="podium__role">{{ top3()[0].title }}</span>
+              <span class="podium__org">{{ top3()[0].orgUnit }}</span>
+            </div>
+            <span class="podium__pts podium__pts--gold">{{ top3()[0].totalPoints }} pts</span>
+          </div>
+        }
+        <div class="podium__block podium__block--gold">
+          <span class="podium__rank">1</span>
+        </div>
+      </div>
+
+      <!-- 3rd place -->
+      <div class="podium__place podium__place--3rd">
+        @if (top3()[2]) {
+          <div class="podium__athlete">
+            <img class="podium__avatar" [src]="top3()[2].avatarUrl" [alt]="top3()[2].name" />
+            <div class="podium__info">
+              <span class="podium__name">{{ top3()[2].name }}</span>
+              <span class="podium__role">{{ top3()[2].title }}</span>
+              <span class="podium__org">{{ top3()[2].orgUnit }}</span>
+            </div>
+            <span class="podium__pts podium__pts--bronze">{{ top3()[2].totalPoints }} pts</span>
+          </div>
+        }
+        <div class="podium__block podium__block--bronze">
+          <span class="podium__rank">3</span>
+        </div>
+      </div>
+
+    </div>
+  }
+</section>
