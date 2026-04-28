@@ -31,7 +31,10 @@
     </div>
   </div>
 
-  <div class="row__cell row__points">{{ employee().totalPoints }}</div>
+  <div class="row__cell row__points">
+    <span class="points-star"></span>
+    {{ employee().totalPoints }}
+  </div>
 
   <div class="row__cell row__cell--center">
     <span class="row__toggle" [class.row__toggle--open]="expanded()">&#x276F;</span>

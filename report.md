@@ -45,3 +45,21 @@ Prompt: Create workflow filr for github actions to deploy this app to giuthub pa
 ```
 
 Deploying this kind of static web sites is strightforward and there are known techniques, so we don't need to provide technical details for this. Coding agents and chat bots are very capable to perform repetative tasks and implementing well known protocol and techniques.
+
+## Additional prompts
+
+```
+Add tooltip to activity counts in employee rows
+```
+
+```
+In rankings table remove column names presentaion, education, university partners. Counts should appear with custom shapes inside number form
+```
+
+```
+Add star shape in front of points count in rankings table. Color of shape and number should be blue
+```
+
+```
+ add small, description "Top performers based on contributions and activity" in header
+```

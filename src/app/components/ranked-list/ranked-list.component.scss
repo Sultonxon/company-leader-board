@@ -43,8 +43,29 @@ $cols: 56px 1fr 140px 110px 100px 120px 100px 52px;
     color: #94a3b8;
 
     &--rank   { text-align: center; }
-    &--count  { text-align: center; }
+    &--count  { display: flex; justify-content: center; align-items: center; }
     &--points { text-align: left; }
     &--expand { text-align: center; }
+  }
+}
+
+.header-shape {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+
+  &--speaking {
+    background: #93c5fd;
+    border-radius: 50%;
+  }
+
+  &--education {
+    background: #6ee7b7;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+
+  &--university {
+    background: #c4b5fd;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 }
