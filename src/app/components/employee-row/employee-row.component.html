@@ -14,15 +14,21 @@
   <div class="row__cell">{{ employee().orgUnit }}</div>
 
   <div class="row__cell row__cell--center">
-    <span class="count-badge count-badge--speaking">{{ employee().presentationCount }}</span>
+    <div class="count-wrap" data-tooltip="Public Speaking">
+      <span class="count-shape count-shape--speaking">{{ employee().presentationCount }}</span>
+    </div>
   </div>
 
   <div class="row__cell row__cell--center">
-    <span class="count-badge count-badge--education">{{ employee().educationCount }}</span>
+    <div class="count-wrap" data-tooltip="Education">
+      <span class="count-shape count-shape--education">{{ employee().educationCount }}</span>
+    </div>
   </div>
 
   <div class="row__cell row__cell--center">
-    <span class="count-badge count-badge--university">{{ employee().universityPartnersCount }}</span>
+    <div class="count-wrap" data-tooltip="University Partners">
+      <span class="count-shape count-shape--university">{{ employee().universityPartnersCount }}</span>
+    </div>
   </div>
 
   <div class="row__cell row__points">{{ employee().totalPoints }}</div>

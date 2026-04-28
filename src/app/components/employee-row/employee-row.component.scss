@@ -99,20 +99,77 @@ $cols: 56px 1fr 140px 110px 100px 120px 100px 52px;
   font-size: 0.95rem;
 }
 
-.count-badge {
+// Tooltip wrapper — holds the pseudo-element tooltip so clip-path on the shape doesn't clip it
+.count-wrap {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 28px;
-  height: 24px;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0 0.4rem;
+  cursor: default;
 
-  &--speaking   { background: #dbeafe; color: #1d4ed8; }
-  &--education  { background: #d1fae5; color: #065f46; }
-  &--university { background: #ede9fe; color: #6d28d9; }
+  &[data-tooltip]::before,
+  &[data-tooltip]::after {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  &[data-tooltip]::after {
+    content: attr(data-tooltip);
+    background: #1e293b;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  &[data-tooltip]::before {
+    content: '';
+    bottom: calc(100% + 1px);
+    border: 5px solid transparent;
+    border-top-color: #1e293b;
+  }
+
+  &[data-tooltip]:hover::before,
+  &[data-tooltip]:hover::after {
+    opacity: 1;
+  }
+}
+
+// Shaped number badge — circle / pentagon / hexagon
+.count-shape {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  &--speaking {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 50%;
+  }
+
+  &--education {
+    background: #d1fae5;
+    color: #065f46;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+
+  &--university {
+    background: #ede9fe;
+    color: #6d28d9;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
 }
 
 .row__toggle {
